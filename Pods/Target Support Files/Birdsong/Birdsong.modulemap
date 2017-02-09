@@ -1,0 +1,6 @@
+framework module Birdsong {
+  umbrella header "Birdsong-umbrella.h"
+
+  export *
+  module * { export * }
+}

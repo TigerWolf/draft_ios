@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (4.3.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - Birdsong (0.4.3):
+    - Starscream (= 2.0.1)
+  - FontAwesome.swift (1.0.0)
+  - KeychainAccess (3.0.1)
+  - LoginKit (0.1.1):
+    - Alamofire (~> 4.0)
+    - KeychainAccess
+    - SVProgressHUD
+  - Rollbar (0.2.0)
+  - Starscream (2.0.1)
+  - SVProgressHUD (2.1.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - AlamofireImage
+  - Birdsong (~> 0.4)
+  - FontAwesome.swift
+  - LoginKit (from `/Users/a1673450/dev/LoginKit`)
+  - Rollbar
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  LoginKit:
+    :path: "/Users/a1673450/dev/LoginKit"
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Birdsong: f7e4f6a1b3e253575852ac62e82dec356f9cda10
+  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
+  LoginKit: f8b0d0306f89894cff5b378cf92ca5c432ace963
+  Rollbar: 7f9f6faab9138cbb1b152f0a500e68f0469554ef
+  Starscream: ce7a202d95615bd4113bc5a0f1932f1db8c808a4
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: cc17359f3d4e9e75108994da32fe14d49a5209f2
+
+COCOAPODS: 1.2.0
