@@ -9,6 +9,8 @@
 import UIKit
 import FontAwesome_swift
 import Birdsong
+import LoginKit
+import SwiftyJSON
 
 class DraftController: UITabBarController {
     
@@ -18,6 +20,8 @@ class DraftController: UITabBarController {
         super.viewDidLoad()
         
         self.socketRun()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(DraftController.activeAgain), name: NSNotification.Name.UIApplicationWillEnterForeground, object:nil)
         
 //        self.tabBar.frame = CGRectMake(0, 120, self.view.frame.width, self.view.frame.height)
         
@@ -41,6 +45,25 @@ class DraftController: UITabBarController {
             image: teamImage,
             tag:2)
         self.viewControllers = controllers
+        
+
+        self.getMessage()
+
+    }
+    
+    func getMessage(){
+        LoginService.request("drafts/message", .get, nil).validate()
+            .responseJSON() { response in
+                
+                if response.result.isSuccess {
+                    NSLog("success")
+                    let json = JSON(response.result.value!)
+                    
+                    let data = json["message"].stringValue
+                    self.liveDraft.draftStatusLabel.text = data
+                    
+                }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,7 +71,7 @@ class DraftController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    let socket = Socket(url: "http://test.kieranandrews.com.au:4000/socket/websocket")
+    let socket = Socket(url: "\(ViewController().url())/socket/websocket")
 
     
     func onDisconnect(_ error: NSError){
@@ -85,7 +108,25 @@ class DraftController: UITabBarController {
                         }
                     }
                     
-                    let alert = UIAlertController(title: "Player Drafted!", message: "Player \(player_name) was picked by \(chat_user)", preferredStyle: UIAlertControllerStyle.alert)
+                    let text = "Player \(player_name) was picked by \(chat_user)"
+                    
+                    self.liveDraft.draftStatusLabel.text = text
+                    
+                    
+                    let alert = UIAlertController(title: "Player Drafted!", message: text, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+                if ( response_body.hasPrefix("notification")){
+//                    let message = response_body.characters.split{$0 == " "}.map(String.init)[1]
+//                    let message = response_body.replace("notification", withString:"")
+                    let message = response_body.replacingOccurrences(of: "notification", with: "")
+                    
+                    self.liveDraft.draftStatusLabel.text = message
+                    
+                    
+                    let alert = UIAlertController(title: "Player Drafted!", message: message, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -132,6 +173,10 @@ class DraftController: UITabBarController {
         
 //            onDisconnect(error)
     
+    }
+    
+    func activeAgain() {
+        self.getMessage()
     }
     
     

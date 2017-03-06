@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "53FA52449C5F9F7C9F9242B381C35C19441E1616",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "53FA52449C5F9F7C9F9242B381C35C19441E1616" : 9223372036854775807,
+    "677631F9BBE34B0D330A9F550A710CD11E5252E6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BC87D1A4-24DA-4E6E-AA06-3014ED86E114",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "53FA52449C5F9F7C9F9242B381C35C19441E1616" : "DraftDay\/",
+    "677631F9BBE34B0D330A9F550A710CD11E5252E6" : "LoginKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DraftDay",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DraftDay.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:TigerWolf\/draft_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "53FA52449C5F9F7C9F9242B381C35C19441E1616"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:TigerWolf\/LoginKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "677631F9BBE34B0D330A9F550A710CD11E5252E6"
+    }
+  ]
+}

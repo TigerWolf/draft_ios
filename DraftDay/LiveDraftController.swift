@@ -12,12 +12,14 @@ import SVProgressHUD
 import SwiftyJSON
 import Alamofire
 import AlamofireImage
+import QuartzCore
 
 class LiveDraftController: UITableViewController, UISearchResultsUpdating {
     
     public var players: [Player] = []
     var filteredPlayers: [Player] = []
     let searchController = UISearchController(searchResultsController: nil)
+    public var draftStatusLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,40 @@ class LiveDraftController: UITableViewController, UISearchResultsUpdating {
         self.tableView.tableHeaderView = searchController.searchBar
         
         SVProgressHUD.show()
+        
+//        var myView: UIView? = Myview
+        let screenSize: CGRect = UIScreen.main.bounds
+        var myView = UIView(frame: CGRect(x: 20, y: screenSize.height - 120, width: screenSize.width - 40, height: 50))
+        myView.backgroundColor = UIColor.black
+        
+//        let sampleTextField = UITextField(frame: CGRect(x:20, y:20, width: screenSize.width - 40, height:40)) //myView.frame) //CGRect(x:20, y:100, width:300, height:40))
+//        sampleTextField.placeholder = "Last picked was..."
+//        sampleTextField.textColor = UIColor.white
+//        sampleTextField.font = UIFont.systemFont(ofSize: 15)
+//        sampleTextField.borderStyle = UITextBorderStyle.roundedRect
+//        sampleTextField.autocorrectionType = UITextAutocorrectionType.no
+//        sampleTextField.keyboardType = UIKeyboardType.default
+//        sampleTextField.returnKeyType = UIReturnKeyType.done
+//        sampleTextField.clearButtonMode = UITextFieldViewMode.whileEditing;
+//        sampleTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        
+        // TODO: check for
+        
+        draftStatusLabel = UILabel(frame: CGRect(x:10, y:0, width:300, height:40))
+        draftStatusLabel.textColor = UIColor.white
+        draftStatusLabel.lineBreakMode = .byWordWrapping // or NSLineBreakMode.ByWordWrapping
+        draftStatusLabel.font = UIFont.systemFont(ofSize: 15)
+//        draftStatusLabel.layer.cornerRadius = 8
+//        draftStatusLabel.layer.masksToBounds = true
+        draftStatusLabel.numberOfLines = 0
+        draftStatusLabel.text = "Loading..."
+//        sampleTextField.delegate = self
+//        myView.addSubview(sampleTextField)
+        myView.addSubview(draftStatusLabel)
+        
+        var currentWindow: UIWindow? = UIApplication.shared.keyWindow
+//        self.view.addSubview(myView)
+        currentWindow?.addSubview(myView)
         
         
         getPlayers()

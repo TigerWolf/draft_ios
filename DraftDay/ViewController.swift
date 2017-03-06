@@ -15,13 +15,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    public func url() -> String{
+//        let url = "http://tigerwolf.noip.me:4000"
+//        let url = "http://test.kieranandrews.com.au:4000/api/v1/"
+        let url = "http://challengecup.club:8080"
+//        let url = "http://localhost:4000"
+        return url
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         // Do any additional setup after loading the view, typically from a nib.
         // Setup
 //        LoginKitConfig.url = "http://tigerwolf.noip.me:4000/api/v1/"
-        LoginKitConfig.url = "http://test.kieranandrews.com.au:4000/api/v1/"
-//        LoginKitConfig.url = "http://direct.challengecup.club:8080/api/v1/"
-        LoginKitConfig.loginPath = "sessions"
+//        LoginKitConfig.url = "http://test.kieranandrews.com.au:4000/api/v1/"
+        LoginKitConfig.url = "\(self.url())/api/v1/"
+        LoginKitConfig.loginPath = "auth/session"
         LoginKitConfig.destination = { ()-> UIViewController in DraftController() }
         LoginKitConfig.logoImage = UIImage(named: "logo") ?? UIImage()
            
